@@ -24,4 +24,10 @@ func main() {
 	fmt.Println(defaultFloat)
 	fmt.Println(smallFloat)
 
+	// using 1 qoutation only for runes
+	// if we print RUNE type without STRING keyword before it will output only a number
+	var firstRune rune = '&'
+	fmt.Println(firstRune)
+	fmt.Println(string(firstRune))
+
 }
