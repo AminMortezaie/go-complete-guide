@@ -7,5 +7,5 @@ func main() {
 	radius := 5
 	var circuleCircumference float32 = 2 * PI * float32(radius)
 	fmt.Println(circuleCircumference)
-	fmt.Printf("For a radius of %v, the circle circumference is %.2f.", radius, circuleCircumference)
+	fmt.Printf("For a radius of %v, the circle circumference is %.2f .", radius, circuleCircumference)
 }
