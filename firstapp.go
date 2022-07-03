@@ -30,4 +30,18 @@ func main() {
 	fmt.Println(firstRune)
 	fmt.Println(string(firstRune))
 
+	// byte is so similar to rune type
+	var firstByte byte = 'a'
+	fmt.Println(firstByte)
+
+	firstName := "Amin"
+	lastName := "Mortezaie"
+
+	fullName := firstName + " " + lastName
+	age := 24
+	//there are a lot of problems using two different types in terms of concating them
+	// to solve these problems we should utilze Printf instead of Println
+
+	fmt.Printf("My name is %v and I'm %v (Type: %T) years old.", fullName, age, age)
+
 }
