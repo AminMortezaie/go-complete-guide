@@ -13,4 +13,15 @@ func main() {
 	fmt.Println(luckyNumber)
 	fmt.Println(newNumber)
 	fmt.Println(newNumber1)
+
+	//default declaration would be float64
+	float := 1.3423534543
+
+	var defaultFloat float64 = 1.232354353453453453
+	var smallFloat float32 = 1.23243543543543534
+
+	fmt.Println(float)
+	fmt.Println(defaultFloat)
+	fmt.Println(smallFloat)
+
 }
