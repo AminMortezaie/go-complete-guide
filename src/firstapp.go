@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/aminmortezaie/firstapp/greeting"
+)
 
 func main() {
 	luckyNumber := 17
@@ -9,7 +13,7 @@ func main() {
 	newNumber := luckyNumber / 3
 	var newNumber1 float64 = float64(luckyNumber) / 3
 
-	fmt.Println("Hello World!")
+	fmt.Println(greeting.GreetingText)
 	fmt.Println(luckyNumber)
 	fmt.Println(newNumber)
 	fmt.Println(newNumber1)
