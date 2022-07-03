@@ -37,7 +37,11 @@ func main() {
 	firstName := "Amin"
 	lastName := "Mortezaie"
 
-	fullName := firstName + " " + lastName
+	//fullName := firstName + " " + lastName
+
+	// another way to concat two different strings
+	fullName := fmt.Sprintf("%v %v", firstName, lastName)
+
 	age := 24
 	//there are a lot of problems using two different types in terms of concating them
 	// to solve these problems we should utilze Printf instead of Println
