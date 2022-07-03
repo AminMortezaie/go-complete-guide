@@ -6,7 +6,9 @@ func main() {
 	firstName := "Amin"
 	lastName := "Mortezaie"
 	currentYear := 2022
-	birthYear := 1998
+
+	var birthYear int
+	birthYear = 1998
 	age := currentYear - birthYear
 
 	nextYear := currentYear + 1
