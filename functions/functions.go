@@ -2,12 +2,12 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
 )
 
 func main() {
 
-	a := 5
-	b := 10
+	a, b := generateRandomNumbers()
 
 	sum := add(a, b)
 	printNumber(sum)
@@ -20,4 +20,10 @@ func add(num1 int, num2 int) int {
 
 func printNumber(number int) {
 	fmt.Printf("The number is %v", number)
+}
+
+func generateRandomNumbers() (int, int) {
+	randomNumber1 := rand.Intn(10)
+	randomNumber2 := rand.Intn(10)
+	return randomNumber1, randomNumber2
 }
