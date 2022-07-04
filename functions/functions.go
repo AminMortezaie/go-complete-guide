@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
 
@@ -8,10 +10,14 @@ func main() {
 	b := 10
 
 	sum := add(a, b)
-	fmt.Println(sum)
+	printNumber(sum)
 
 }
 
 func add(num1 int, num2 int) int {
 	return num1 + num2
+}
+
+func printNumber(number int) {
+	fmt.Printf("The number is %v", number)
 }
