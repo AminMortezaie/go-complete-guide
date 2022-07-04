@@ -1,8 +1,6 @@
 package main
 
 import (
-	"fmt"
-
 	"github.com/aminmortezaie/bmi/info"
 )
 
@@ -12,7 +10,11 @@ func main() {
 
 	weight, height := getUsersMetrics()
 
-	bmi := weight / (height * height)
+	bmi := calculateBMI(weight, height)
 
-	fmt.Printf("Your BMI is: %.2f", bmi)
+	printBMI(bmi)
+}
+
+func calculateBMI(weight float64, height float64) float64 {
+	return weight / (height * height)
 }
