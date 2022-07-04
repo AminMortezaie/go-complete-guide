@@ -20,7 +20,7 @@ func main() {
 }
 
 func getUserData(promptText string) (cleanedInput string) {
-	fmt.Println(promptText)
+	fmt.Print(promptText)
 
 	userInput, _ := reader.ReadString('\n')
 	cleanedInput = strings.Replace(userInput, "\r\n", "", -1)
