@@ -10,13 +10,23 @@ import (
 
 var reader = bufio.NewReader(os.Stdin)
 
+type User struct {
+	firstName string
+	lastName  string
+	birthDate string
+	created   time.Time
+}
+
 func main() {
+
 	firstName := getUserData("Please enter your first name: ")
 	lastName := getUserData("Please enter your last name: ")
 	birthDate := getUserData("Please enter your birthdate (MM/DD/YYYY)")
 	created := time.Now()
 
-	fmt.Println(firstName, lastName, birthDate, created)
+	newUser := User{firstName, lastName, birthDate, created}
+
+	fmt.Println(newUser)
 }
 
 func getUserData(promptText string) (cleanedInput string) {
