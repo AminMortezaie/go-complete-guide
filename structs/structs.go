@@ -17,14 +17,19 @@ type User struct {
 	created   time.Time
 }
 
+func NewUser(fName string, lName string, bDate string) (newUser User) {
+	created := time.Now()
+	newUser = User{fName, lName, bDate, created}
+	return
+}
+
 func main() {
 
 	firstName := getUserData("Please enter your first name: ")
 	lastName := getUserData("Please enter your last name: ")
 	birthDate := getUserData("Please enter your birthdate (MM/DD/YYYY)")
-	created := time.Now()
 
-	newUser := User{firstName, lastName, birthDate, created}
+	newUser := NewUser(firstName, lastName, birthDate)
 
 	fmt.Println(newUser)
 }
