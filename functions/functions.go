@@ -14,10 +14,13 @@ func main() {
 
 }
 
+// version 0
+
 // func add(num1 int, num2 int) int {
 // 	return num1 + num2
 // }
 
+// version 1
 // another declartion of functions by creating name for each output and swiftly we can use return alonely
 // pay attention to this example
 // it will return sum without refering sum after Return keyword
@@ -30,8 +33,8 @@ func printNumber(number int) {
 	fmt.Printf("The number is %v", number)
 }
 
-func generateRandomNumbers() (int, int) {
-	randomNumber1 := rand.Intn(10)
-	randomNumber2 := rand.Intn(6)
-	return randomNumber1, randomNumber2
+func generateRandomNumbers() (r1 int, r2 int) {
+	r1 = rand.Intn(10)
+	r2 = rand.Intn(6)
+	return
 }
