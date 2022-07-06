@@ -17,10 +17,22 @@ type User struct {
 	created   time.Time
 }
 
-func NewUser(fName string, lName string, bDate string) (newUser User) {
+// Using pointers in terms of using less memory
+// we would return pointer as we need in our program
+// it is firmly correlated to our software architecture.
+
+func NewUser(fName string, lName string, bDate string) (newUser *User) {
 	created := time.Now()
-	newUser = User{fName, lName, bDate, created}
+	newUser = &User{fName, lName, bDate, created}
 	return
+}
+
+// This is just like a class with referring to a method.
+// to reduce our code, it will handle like an OOP program for you.
+// This is known as receiver
+
+func (user User) printer() {
+	fmt.Printf("%v %v", user.firstName, user.lastName)
 }
 
 func main() {
@@ -31,7 +43,8 @@ func main() {
 
 	newUser := NewUser(firstName, lastName, birthDate)
 
-	fmt.Println(newUser)
+	// fmt.Println(newUser)
+	newUser.printer()
 }
 
 func getUserData(promptText string) (cleanedInput string) {
