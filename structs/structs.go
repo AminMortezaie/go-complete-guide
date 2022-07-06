@@ -31,7 +31,10 @@ func NewUser(fName string, lName string, bDate string) (newUser *User) {
 // to reduce our code, it will handle like an OOP program for you.
 // This is known as receiver
 
-func (user User) printer() {
+// This func uses a pointer and increadably when you pass a pointer,
+// Go acknowledges and will act with your pointer same as your variable and you can call its attributes
+
+func (user *User) printer() {
 	fmt.Printf("%v %v", user.firstName, user.lastName)
 }
 
@@ -45,11 +48,6 @@ func main() {
 
 	// fmt.Println(newUser)
 	newUser.printer()
-}
-
-// This func uses a pointer and increadably when you pass a pointer, Go acknowledges and will act with your pointer same as your variable and you can call its attributes
-func outputUserDetails(user *User) {
-	fmt.Printf("My name is %v  %v", user.firstName, user.lastName)
 }
 
 func getUserData(promptText string) (cleanedInput string) {
