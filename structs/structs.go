@@ -47,7 +47,7 @@ func main() {
 	newUser.printer()
 }
 
-// This func uses a pointer and increadably when you pass a pointer Go understands and will act with your pointer same as your variable and you can call its attributes
+// This func uses a pointer and increadably when you pass a pointer, Go acknowledges and will act with your pointer same as your variable and you can call its attributes
 func outputUserDetails(user *User) {
 	fmt.Printf("My name is %v  %v", user.firstName, user.lastName)
 }
