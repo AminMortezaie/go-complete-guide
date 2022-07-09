@@ -14,7 +14,7 @@ func main() {
 	featuredPrices := prices[:3]
 	fmt.Println(featuredPrices)
 
-	// there is no way to trace the left side of an array and if you initiate your slice from second object of your array you cannot acheive to your first object neither.
+	// there is no way to trace the left side of an array and if you initiate your slice from second object of your array you cannot achieve to your first object neither.
 	fmt.Println(len(featuredPrices), cap(featuredPrices))
 
 }
