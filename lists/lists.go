@@ -11,6 +11,14 @@ func main() {
 	updatedPrices := append(prices, 5.99)
 	fmt.Println(updatedPrices, prices)
 
+	discountPrices := []float64{101.99, 80.99, 71.99}
+
+	// using three commas to append the values of a whole list to another one.
+	// you cannot do it directly hence it's a list type and there is no way to append it to a list of floats
+
+	prices = append(prices, discountPrices...)
+	fmt.Printf("%v", prices)
+
 }
 
 // func main() {
