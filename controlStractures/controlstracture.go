@@ -20,7 +20,7 @@ func main() {
 
 	// storing a condition in a variable could be super useful and Go will approve this.
 	isOldEnough := userAge >= 18
-	isOld := userAge >= 30
+	isOld := userAge >= 30 && userAge < 50
 
 	if isOld {
 		fmt.Println("You're eligible for our senior jobs!")
