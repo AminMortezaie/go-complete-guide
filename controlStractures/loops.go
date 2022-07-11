@@ -5,6 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"os"
+	"strconv"
 	"strings"
 )
 
@@ -28,17 +29,65 @@ func main() {
 	}
 }
 
-func calculateSumUpToNumber() {}
-func calculateFactorial()     {}
-func calculateSumManually()   {}
-func calculateListSum()       {}
+func calculateSumUpToNumber() {
+	fmt.Printf("Please enter your number: ")
+	chosenNumber, err := getInputNumber()
+
+	if err != nil {
+		fmt.Printf("Invalid number input")
+		return
+	}
+
+	sum := 0
+
+	for i := 1; i <= chosenNumber; i++ {
+		sum = sum + i
+	}
+	fmt.Printf("Result: %v", sum)
+}
+func calculateFactorial() {
+	fmt.Printf("Please enter your number to calculate fac: ")
+	chosenNumber, err := getInputNumber()
+
+	if err != nil {
+		fmt.Printf("Invalid number input")
+		return
+	}
+
+	fac := 1
+
+	for i := 1; i <= chosenNumber; i++ {
+		fac = fac * i
+	}
+	fmt.Printf("Result: %v", fac)
+}
+func calculateSumManually() {}
+func calculateListSum()     {}
+
+func getInputNumber() (int, error) {
+	inputNumber, err := reader.ReadString('\n')
+
+	if err != nil {
+		return 0, err
+	}
+
+	inputNumber = strings.ReplaceAll(inputNumber, "\r\n", "")
+
+	// why we can declare another err variable in this part when it's declared before on the first line of func?
+
+	chosenNumber, err := strconv.ParseInt(inputNumber, 0, 64)
+	if err != nil {
+		return 0, err
+	}
+	return int(chosenNumber), nil
+}
 
 func getUserChoice() (string, error) {
-	fmt.Println("Please make your choice")
 	fmt.Println("1) Add up all the numbers of to number X")
 	fmt.Println("2) Build the factorial up to number X")
 	fmt.Println("3) Sum up manually entered numbers")
 	fmt.Println("4) Sum up a list of entered numbers")
+	fmt.Printf("Please make your choice: ")
 
 	userInput, err := reader.ReadString('\n')
 
@@ -56,5 +105,7 @@ func getUserChoice() (string, error) {
 	} else {
 		return "", errors.New("INVALID INPUT")
 	}
+
+	var writer interface{}
 
 }
