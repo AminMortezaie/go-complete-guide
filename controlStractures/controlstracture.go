@@ -10,16 +10,10 @@ import (
 
 func main() {
 
-	reader := bufio.NewReader(os.Stdin)
-
-	fmt.Printf("Please enter your age: ")
-
-	userAgeInput, _ := reader.ReadString('\n')
-	userAgeInput = strings.ReplaceAll(userAgeInput, "\r\n", "")
-	userAge, err := strconv.ParseInt(userAgeInput, 0, 64)
+	userAge, err := getUserAge()
 
 	if err != nil {
-		fmt.Printf("Input is invalid!")
+		fmt.Printf("Invalid input!")
 		return
 	}
 
@@ -34,4 +28,20 @@ func main() {
 	} else {
 		fmt.Println("Sorry, You're not old enough :/")
 	}
+}
+
+func getUserAge() (int, error) {
+	reader := bufio.NewReader(os.Stdin)
+
+	fmt.Printf("Please enter your age: ")
+
+	userAgeInput, _ := reader.ReadString('\n')
+	userAgeInput = strings.ReplaceAll(userAgeInput, "\r\n", "")
+	userAge, err := strconv.ParseInt(userAgeInput, 0, 64)
+
+	// Creating New Error
+	// error := errors.New("INVALID INPUT!")
+	// return int(userAge), error
+
+	return int(userAge), err
 }
