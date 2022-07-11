@@ -16,7 +16,12 @@ func main() {
 
 	userAgeInput, _ := reader.ReadString('\n')
 	userAgeInput = strings.ReplaceAll(userAgeInput, "\r\n", "")
-	userAge, _ := strconv.ParseInt(userAgeInput, 0, 64)
+	userAge, err := strconv.ParseInt(userAgeInput, 0, 64)
+
+	if err != nil {
+		fmt.Printf("Input is invalid!")
+		return
+	}
 
 	// storing a condition in a variable could be super useful and Go will approve this.
 	isOldEnough := userAge >= 18
