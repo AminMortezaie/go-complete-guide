@@ -54,12 +54,15 @@ func calculateFactorial() {
 		return
 	}
 
-	fac := 1
+	fac := new(uint64)
+	i := new(uint64)
 
-	for i := 1; i <= chosenNumber; i++ {
-		fac = fac * i
+	*fac = 1
+
+	for *i = 1; *i <= uint64(chosenNumber); *i++ {
+		*fac = (*fac) * (*i)
 	}
-	fmt.Printf("Result: %v", fac)
+	fmt.Printf("Result: %v", *fac)
 }
 func calculateSumManually() {
 	isEnteringNumbers := true
