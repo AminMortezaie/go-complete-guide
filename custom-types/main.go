@@ -22,18 +22,12 @@ func (number customNumber) pow(power int) (result customNumber) {
 }
 
 func main() {
-	myVar := person{"ali", 18}
-	myVar.birthday()
-	myVar.birthday()
-	myVar.birthday()
-	myVar.birthday()
-	myVar.birthday()
-	fmt.Printf("myVar: %v\n", myVar)
-}
-
-// if you want change the value of the variable you need to declare the pointer instead of value
-// because Go would copy by value not copy by reference!
-
-func (p *person) birthday() {
-	p.age++
+	var people personData = personData{
+		"p1": {
+			"amin",
+			24,
+		},
+	}
+	fmt.Printf("Print names: %v", people)
+	fmt.Printf("Power of people:%v", customNumber.pow(2, 69))
 }
