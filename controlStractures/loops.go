@@ -61,8 +61,18 @@ func calculateFactorial() {
 	}
 	fmt.Printf("Result: %v", fac)
 }
-func calculateSumManually() {}
-func calculateListSum()     {}
+func calculateSumManually() {
+	isEnteringNumbers := true
+	sum := 0
+	fmt.Printf("Keep entering numbers, the program will stop once you enter any other values.\n")
+	for isEnteringNumbers {
+		chosenNumber, err := getInputNumber()
+		sum += chosenNumber
+		isEnteringNumbers = err == nil
+	}
+	fmt.Printf("Result: %v", sum)
+}
+func calculateListSum() {}
 
 func getInputNumber() (int, error) {
 	inputNumber, err := reader.ReadString('\n')
@@ -105,7 +115,5 @@ func getUserChoice() (string, error) {
 	} else {
 		return "", errors.New("INVALID INPUT")
 	}
-
-	var writer interface{}
 
 }
