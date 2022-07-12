@@ -72,7 +72,31 @@ func calculateSumManually() {
 	}
 	fmt.Printf("Result: %v", sum)
 }
-func calculateListSum() {}
+func calculateListSum() {
+	fmt.Printf("Enter numbers split them using comma not whitespace.\n")
+	inputNumberList, err := reader.ReadString('\n')
+
+	if err != nil {
+		fmt.Printf("Invalid input!")
+		return
+	}
+
+	inputNumberList = strings.ReplaceAll(inputNumberList, "\r\n", "")
+	inputNumber := strings.Split(inputNumberList, ",")
+	sum := 0
+	for index, value := range inputNumber {
+		num, err := strconv.ParseInt(value, 0, 64)
+		sum += int(num)
+		if err != nil {
+			fmt.Printf("This value is not acceptable.\n")
+			continue
+		}
+		fmt.Printf("Index: %v, Value: %v \n", index, value)
+
+	}
+
+	fmt.Printf("Result: %v", sum)
+}
 
 func getInputNumber() (int, error) {
 	inputNumber, err := reader.ReadString('\n')
