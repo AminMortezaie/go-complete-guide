@@ -4,11 +4,11 @@ import "fmt"
 
 // using iota to make a list of constants and assign value to them.
 
-const (
-	inputAttack = iota
-	inputSpecialAttack
-	inputHeal
-)
+// const (
+// 	inputAttack = iota
+// 	inputSpecialAttack
+// 	inputHeal
+// )
 
 func main() {
 
