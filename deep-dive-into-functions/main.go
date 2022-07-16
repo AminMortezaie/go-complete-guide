@@ -2,10 +2,17 @@ package main
 
 import "fmt"
 
+var numbers = [...]int{1, 2, 3}
+
 func main() {
-	numbers := []int{1, 2, 3}
-	doubled := transformNumbers(&numbers, triple)
-	fmt.Printf("doubled: %v\n", doubled)
+
+	a := new([4]int)
+	fmt.Printf("a: %v\n", &a)
+
+	// doubled := transformNumbers(&numbers, triple)
+	// fmt.Printf("doubled: %v\n", doubled)
+	// getTransformerFunction(numbers)
+	// fmt.Printf("numbers: %v\n", numbers)
 
 }
 
@@ -23,4 +30,17 @@ func double(num int) int {
 
 func triple(num int) int {
 	return num * 3
+}
+
+func getTransformerFunction(num []int) {
+	num[0] = 222
+	fmt.Printf("numbers: %v\n", numbers)
+}
+
+// transformer function.
+
+func createTransformer(factor int) func(int) int {
+	return func(number int) int {
+		return number * factor
+	}
 }
