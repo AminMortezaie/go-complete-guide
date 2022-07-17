@@ -29,8 +29,13 @@ func storeData(data string) {
 		return
 	}
 
+	// using defer keyword in terms of calling something in your func body and you want to execute them at the end of executing.
+	defer func() {
+		file.Close()
+		fmt.Printf("file was not closed correctly!")
+	}()
+
 	file.WriteString(data)
 	fmt.Printf("Data is created successfully!")
-	file.Close()
 
 }
