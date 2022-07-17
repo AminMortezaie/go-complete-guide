@@ -1,29 +1,36 @@
 package main
 
-import "fmt"
+import (
+	"bufio"
+	"fmt"
+	"os"
+	"strings"
+)
 
 func main() {
+	storeData(getUserInput())
 
-	arr := []int{1, 2, 4}
-
-	fmt.Printf("Result: %v", sumup(arr))
-	fmt.Printf("Result: %v", variadicSumup(1, 43, 5353, 423))
 }
 
-func sumup(numbers []int) int {
-	sum := 0
-
-	for _, val := range numbers {
-		sum += val
-	}
-	return sum
+func getUserInput() (userInput string) {
+	fmt.Printf("Please write down your text: ")
+	reader := bufio.NewReader(os.Stdin)
+	userInput, _ = reader.ReadString('\n')
+	userInput = strings.ReplaceAll(userInput, "\r\n", "")
+	fmt.Printf("userInput: %v\n", userInput)
+	return
 }
 
-func variadicSumup(numbers ...int) int {
-	sum := 0
+func storeData(data string) {
+	file, err := os.Create("data.txt")
 
-	for _, val := range numbers {
-		sum += val
+	if err != nil {
+		fmt.Printf("Creating file failed!")
+		return
 	}
-	return sum
+
+	file.WriteString(data)
+	fmt.Printf("Data is created successfully!")
+	file.Close()
+
 }
