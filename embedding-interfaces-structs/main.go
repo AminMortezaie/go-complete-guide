@@ -24,6 +24,20 @@ type userInputData struct {
 	input string
 }
 
+type user struct {
+	firstName string
+	lastName  string
+	*userInputData
+}
+
+func newUser(first string, last string) *user {
+	return &user{
+		firstName:     first,
+		lastName:      last,
+		userInputData: &userInputData{},
+	}
+}
+
 //this func just initialize the struct
 func newUserInputData() *userInputData {
 	return &userInputData{}
@@ -59,6 +73,11 @@ func (usr *userInputData) Store(fileName string) {
 
 func main() {
 	data := newUserInputData()
+
+	amin := newUser("amin", "mortezaie")
+
+	// Pashmammmmm!!!
+	amin.PromptForInput()
 	handleUserInput(data)
 }
 
