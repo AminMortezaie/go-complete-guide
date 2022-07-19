@@ -53,5 +53,8 @@ func (usr *userInputData) Storer(fileName string) {
 }
 
 func main() {
+	data := newUserInputData()
+	data.PromptForInput()
+	data.Storer("user1.txt")
 
 }
