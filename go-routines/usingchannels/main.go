@@ -1,4 +1,4 @@
-package main
+package usingchannles
 
 import (
 	"fmt"
@@ -9,16 +9,18 @@ func main() {
 	great()
 
 	// declaring channels
-	channel1 := make(chan int)
-	channel2 := make(chan int)
+	channel := make(chan int)
+	// channel2 := make(chan int)
+
+	//there is no need to create two channels instead we need to call one channel two times for example.
 
 	// pass channals as a parameter
-	go storeMoreData(50000, "50000_1.txt", channel1)
-	go storeMoreData(50000, "50000_2.txt", channel2)
+	go storeMoreData(50000, "50000_1.txt", channel)
+	go storeMoreData(50000, "50000_2.txt", channel)
 
 	//using channels
-	<-channel1
-	<-channel2
+	<-channel
+	<-channel
 }
 
 func great() {
