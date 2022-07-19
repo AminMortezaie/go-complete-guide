@@ -8,11 +8,16 @@ import (
 )
 
 type Storer interface {
-	Store()
+	Store(fileName string)
 }
 
 type Prompter interface {
 	PromptForInput()
+}
+
+type PromptStorer interface {
+	Prompter
+	Storer
 }
 
 type userInputData struct {
@@ -40,7 +45,7 @@ func (usr *userInputData) PromptForInput() {
 
 }
 
-func (usr *userInputData) Storer(fileName string) {
+func (usr *userInputData) Store(fileName string) {
 	file, err := os.Create(fileName)
 
 	if err != nil {
@@ -54,7 +59,11 @@ func (usr *userInputData) Storer(fileName string) {
 
 func main() {
 	data := newUserInputData()
-	data.PromptForInput()
-	data.Storer("user1.txt")
+	handleUserInput(data)
+}
 
+func handleUserInput(container PromptStorer) {
+	fmt.Printf("Ready to Store:::\n")
+	container.PromptForInput()
+	container.Store("user1.txt")
 }
