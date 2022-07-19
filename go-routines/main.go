@@ -17,10 +17,22 @@ func main() {
 	go generateValue(c)
 
 	//getting data from channel
-	x := <-c
-	y := <-c
+	// x := <-c
+	// y := <-c
 
-	sum := x + y
+	//using loop for goroutines
+	sum := 0
+	i := 0
+
+	for num := range c {
+		sum += num
+		i++
+
+		if i == 2 {
+			close(c)
+		}
+	}
+
 	fmt.Printf("sum: %v \n", sum)
 }
 
