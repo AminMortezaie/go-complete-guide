@@ -6,6 +6,10 @@ import (
 	"io/ioutil"
 )
 
+type logger interface {
+	log()
+}
+
 type logData struct {
 	message  string
 	fileName string
@@ -31,4 +35,9 @@ func main() {
 
 	message := loggableString("[INFO] User created.")
 	message.log()
+	createLog(&logData{"user logged out", "user-log.txt"})
+}
+
+func createLog(data logger) {
+	data.log()
 }
