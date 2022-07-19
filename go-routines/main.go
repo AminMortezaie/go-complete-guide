@@ -7,8 +7,18 @@ import (
 
 func main() {
 	great()
-	go storeMoreData(50000, "50000_1.txt")
-	go storeMoreData(50000, "50000_2.txt")
+
+	// declaring channels
+	channel1 := make(chan int)
+	channel2 := make(chan int)
+
+	// pass channals as a parameter
+	go storeMoreData(50000, "50000_1.txt", channel1)
+	go storeMoreData(50000, "50000_2.txt", channel2)
+
+	//using channels
+	<-channel1
+	<-channel2
 }
 
 func great() {
@@ -32,10 +42,13 @@ func storeData(storableText string, fileName string) {
 	}
 }
 
-func storeMoreData(lines int, fileName string) {
+// add channel
+func storeMoreData(lines int, fileName string, c chan int) {
 	for i := 0; i < lines; i++ {
 		text := fmt.Sprintf("Line %v - Dummy Data \n", i)
 		storeData(text, fileName)
 	}
 	fmt.Printf("-- Done Storing %v lines of Data!\n", lines)
+	// initilize channel
+	c <- 1
 }
